@@ -1,0 +1,36 @@
+{
+  "name": "mahout",
+  "version": "0.0.1",
+  "description": "A project generator for creating frontend applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "preferGlobal": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nramadas/mahout.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "generator",
+    "es6",
+    "babel"
+  ],
+  "bin": {
+    "mahout": "./index.js"
+  },
+  "author": "nramadas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nramadas/mahout/bugs"
+  },
+  "homepage": "https://github.com/nramadas/mahout#readme",
+  "dependencies": {
+    "cli-spinner": "0.2.5",
+    "colors": "1.1.2",
+    "rimraf": "2.5.2",
+    "yargs": "4.7.1"
+  }
+}
