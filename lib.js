@@ -1,5 +1,7 @@
 var Spinner = require('cli-spinner').Spinner;
 var colors = require('colors');
+var fs = require('fs');
+var path = require('path');
 
 var last = function(arr) { return arr[arr.length - 1]; };
 
@@ -51,6 +53,46 @@ var log = function(str, next) {
   next();
 };
 
+var copyFile = function(file, dest, next) {
+  fs.readFile(path.resolve(__dirname, file), function(err, blob) {
+    if (err) throw err;
+
+    fs.writeFile('./' + dest, blob, function(err) {
+      if (err) throw err;
+      console.log(colors.green(' ✓ ') + colors.white('creating ' + dest));
+      next();
+    });
+  });
+};
+
+var makeFile = function(file, value, next) {
+  if (!value) value = '';
+
+  fs.writeFile('./' + file, value, function(err) {
+    if (err) throw err;
+
+    console.log(colors.green(' ✓ ') + colors.white('creating ' + file));
+    next();
+  });
+};
+
+var makeDir = function(dir, next) {
+  var target = './' + dir;
+
+  fs.exists(target, function(exists) {
+    if (exists) {
+      console.log(colors.green(' ✓ ') + colors.white('creating ' + dir));
+      next();
+    } else {
+      fs.mkdir(target, function(err) {
+        if (err) throw err;
+        console.log(colors.green(' ✓ ') + colors.white('creating ' + dir));
+        next();
+      });
+    }
+  });
+};
+
 module.exports = {
   log: log,
   prompt: prompt,
@@ -58,4 +100,7 @@ module.exports = {
   chainCb: chainCb,
   makeSpinner: makeSpinner,
   stopSpinner: stopSpinner,
+  copyFile: copyFile,
+  makeFile: makeFile,
+  makeDir: makeDir,
 };

@@ -1,4 +1,4 @@
-var chainCb = require('./lib').chainCb;
+var chainCb = require('../lib').chainCb;
 var setupPackageJson = require('./setupPackageJson');
 var installNodePackages = require('./installNodePackages');
 var setupProjectDir = require('./setupProjectDir');

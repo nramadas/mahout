@@ -2,21 +2,26 @@ var colors = require('colors');
 var rimraf = require('rimraf');
 var exec = require('child_process').exec;
 
-var chainCb = require('./lib').chainCb;
-var makeSpinner = require('./lib').makeSpinner;
-var stopSpinner = require('./lib').stopSpinner;
+var chainCb = require('../lib').chainCb;
+var makeSpinner = require('../lib').makeSpinner;
+var stopSpinner = require('../lib').stopSpinner;
 
 var PACKAGES = {
   WEBPACK: [
     'webpack@2.1.0-beta.7',
+    'webpack-dev-server@2.1.0-beta.0',
+    'babel-cli',
     'babel-core',
     'babel-loader',
     'babel-plugin-transform-class-properties',
     'babel-plugin-transform-react-constant-elements',
     'babel-plugin-transform-react-inline-elements',
+    'babel-plugin-transform-runtime',
+    'babel-preset-es2015',
     'babel-preset-es2015-native-modules',
     'babel-preset-react',
     'babel-preset-stage-2',
+    'babel-preset-react-hmre',
     'css-loader',
     'extract-text-webpack-plugin',
     'ignore-loader',
@@ -35,6 +40,7 @@ var PACKAGES = {
     'reselect',
   ],
   TESTING: [
+    'nodemon',
     'mocha',
     'chai',
     'sinon',
@@ -83,19 +89,19 @@ var installAllPackages = function(next) {
     [cleanNodeModules],
     [installPackages,
       'Installing transpilation tooling',
-      PACKAGES.WEBPACK, '--save-dev'],
+      PACKAGES.WEBPACK, '-S'],
     [installPackages,
       'Installing testing framework',
       PACKAGES.TESTING, '--save-dev'],
     [installPackages,
       'Installing react',
-      PACKAGES.REACT, '--save'],
+      PACKAGES.REACT, '-S'],
     [installPackages,
       'Installing koa',
-      PACKAGES.SERVER, '--save'],
+      PACKAGES.SERVER, '-S'],
     [installPackages,
       'Installing libraries',
-      PACKAGES.LIB, '--save']
+      PACKAGES.LIB, '-S']
   ], next);
 };
 

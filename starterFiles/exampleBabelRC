@@ -1,0 +1,32 @@
+{
+  "presets": [
+    "stage-2",
+    "react"
+  ],
+  "plugins": [
+    "transform-class-properties",
+    "transform-runtime"
+  ],
+  "env": {
+    "development": {
+      "presets": [
+        "es2015-native-modules",
+        "react-hmre"
+      ]
+    },
+    "server": {
+      "presets": [
+        "es2015"
+      ]
+    },
+    "production": {
+      "presets": [
+        "es2015"
+      ],
+      "plugins": [
+        "transform-react-constant-elements",
+        "transform-react-inline-elements"
+      ]
+    }
+  }
+}

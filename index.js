@@ -5,16 +5,14 @@ var exec = require('child_process').exec;
 var colors = require('colors');
 var yargs = require('yargs');
 
-var generate = require('./generate');
+var generate = require('./generate/generate');
 
-var cmdArgs = yargs
-  .alias('g', 'gen')
-    .describe('g', 'Generate a new project')
+yargs
+  .command('gen', 'Create a base project', function() {
+    generate(function() {
+      console.log(colors.green('All done!'));
+      process.exit();
+    });
+  })
+  .help()
   .argv;
-
-if (cmdArgs.gen) {
-  generate(function() {
-    console.log(colors.green('All done!'));
-    process.exit();
-  });
-}
