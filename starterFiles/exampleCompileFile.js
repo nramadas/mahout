@@ -1,5 +1,7 @@
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
+var Uglify = require('webpack/lib/optimize/UglifyJsPlugin');
+var Define = require('webpack/lib/DefinePlugin');
 var argv = require('yargs').argv;
 var config = require('./webpack.config');
 
@@ -22,7 +24,8 @@ if (process.env.NODE_ENV === 'development') {
   });
   server.listen(8080);
 } else {
-  config.plugins.push(new webpack.optimize.UglifyJsPlugin({}));
+  config.plugins.push(new Define({ 'process.env.NODE_ENV': `'production'` }));
+  config.plugins.push(new Uglify({ compress: { warnings: false } }));
 
   webpack(config).run(function(err, stats) {
     if (!err) {

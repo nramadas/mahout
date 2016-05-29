@@ -17,7 +17,6 @@ export default function() {
         <title>Mahout Generated App</title>
         <meta charSet="utf8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link rel='stylesheet' href='/fonts/font.css'/>
         <link rel='stylesheet' href={ cssSrc }/>
       </head>
       <body>

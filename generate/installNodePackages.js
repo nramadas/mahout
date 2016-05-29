@@ -57,7 +57,6 @@ var PACKAGES = {
   ],
   LIB: [
     'lodash@3',
-    'webfonts-generator',
   ],
 };
 
