@@ -1,6 +1,6 @@
 {
   "name": "mahout",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A project generator for creating frontend applications",
   "main": "index.js",
   "scripts": {
