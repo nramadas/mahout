@@ -12,10 +12,7 @@ if (process.env.NODE_ENV === 'development') {
 
   var compiler = webpack(config);
   var server = new WebpackDevServer(compiler, {
-    contentBase: 'www',
     hot: true,
-    filename: 'bundle.js',
-    publicPath: '/',
     stats: {
       colors: true,
       chunks: false,

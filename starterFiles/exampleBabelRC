@@ -21,7 +21,7 @@
     },
     "production": {
       "presets": [
-        "es2015"
+        "es2015-native-modules"
       ],
       "plugins": [
         "transform-react-constant-elements",
