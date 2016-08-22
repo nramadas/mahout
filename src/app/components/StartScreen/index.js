@@ -35,7 +35,7 @@ StartScreen.defaultProps = {
 };
 
 const dispatcher = dispatch => ({
-  onStartNewProject: () => dispatch(screenActions.gotoScreen(PAGE_TYPES.NEW_PROJECT_FORM)),
+  onStartNewProject: () => dispatch(screenActions.gotoScreen(PAGE_TYPES.NEW_PROJECT)),
 });
 
 export default connect(null, dispatcher)(StartScreen);

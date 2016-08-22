@@ -4,7 +4,12 @@ var BrowserWindow = require('electron').BrowserWindow;
 var win;
 
 function createWindow() {
-  win = new BrowserWindow({ width: 800, height: 600 });
+  win = new BrowserWindow({
+    title: 'Mahout',
+    width: 960,
+    minWidth: 960,
+    height: 1020
+  });
   win.loadURL(`file://${__dirname}/mahout.html`);
   win.webContents.openDevTools();
 
