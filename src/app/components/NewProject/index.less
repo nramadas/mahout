@@ -39,24 +39,17 @@
   }
 
   &__continue {
+    display: block;
     width: 130px;
     height: 130px;
-    border: 1px solid @dark-brown;
-    color: @dark-brown;
     border-radius: 130px;
+    outline: none;
+    background-color: transparent;
     font-size: 64px;
-    line-height: 130px;
+    line-height: 122px;
     text-align: center;
-
-    &.m-ready {
-      color: @lighter-brown;
-      border-color: @lighter-brown;
-      cursor: pointer;
-
-      &:hover {
-        color: @orange;
-        border-color: @orange;
-      }
-    }
+    color: @lighter-brown;
+    border: 2px solid @lighter-brown;
+    cursor: pointer;
   }
 }
